@@ -146,7 +146,7 @@ export class AuctionsService {
     const [dados, total] = await Promise.all([
       this.prisma.auction.findMany({
         where,
-        orderBy: { criadoEm: 'desc' },
+        orderBy: { criadoEm: 'asc' }, // leilao mais antigo primeiro, o recem-criado fica no final da lista
         skip: paginacao.skip,
         take: paginacao.take,
       }),
